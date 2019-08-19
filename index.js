@@ -5,19 +5,19 @@ let nextRotor = rotor => [ ...rotor.slice(1) , rotor[0] ]
 let shuf = list => list.sort(_=>Math.random() - 0.5);
 
 class Enigma {
-  ID;
+
   plugBoard;
   rotors;
-  refrector;
+  reflector;
 
   rotorsFirsts;
 
   constructor(option){
-    let {plugBoard,rotors,refrector} = JSON.parse(JSON.stringify(option || {}))
+    let {plugBoard,rotors,reflector} = JSON.parse(JSON.stringify(option || {}))
 
     this.plugBoard    = plugBoard || this.rotorGenerator()
     this.rotors       = rotors    || Array.from({length:3}).map(_=>shuf(this.rotorGenerator()))
-    this.refrector    = refrector || shuf(this.rotorGenerator())
+    this.reflector    = reflector || this.rotorGenerator().reverse()
 
     console.log(this.toJSON())
     this.rotorsFirsts = [ ...this.rotors ].map(list=>+list[0])
@@ -26,8 +26,8 @@ class Enigma {
     return Array.from({length}).map((_,i)=>i)
   }
   toJSON(){
-    let {plugBoard,rotors,refrector} = this
-    return JSON.parse(JSON.stringify({plugBoard,rotors,refrector}))
+    let {plugBoard,rotors,reflector} = this
+    return JSON.parse(JSON.stringify({plugBoard,rotors,reflector}))
   }
   convertor(inputNum){
     let phase_1 = toConv(this.plugBoard,inputNum)
@@ -36,7 +36,7 @@ class Enigma {
       .map(list=>toConv.bind(null,list))
       .reduce((result,f)=>f(result),phase_1)
 
-    let phase_3 = toConv(this.refrector,phase_2)
+    let phase_3 = toConv(this.reflector,phase_2)
 
     let phase_4 = this.rotors
       .map(list=>revConv.bind(null,list))
@@ -60,7 +60,6 @@ class Enigma {
     return output
   }
   updateRotor(){
-    console.log(new Date(),this.rotors[0][0])
     for (let i = 0; i < this.rotors.length; i++){
       if( i > 0 && this.rotors[i - 1][0] != this.rotorsFirsts[i - 1] ) {break};
       this.rotors[i] = nextRotor(this.rotors[i])
