@@ -1,13 +1,21 @@
 # enigma
 
 [![Build Status](https://travis-ci.org/amanoese/enigma.svg?branch=master)](https://travis-ci.org/amanoese/enigma)
+[![npm version](http://img.shields.io/npm/v/@amanoese/enigma.svg)](https://npmjs.org/package/@amanoese/enigma)
+
 
 enigmaのNode.jsによるシンプルな実装です。
+
+## Install
+
+```bash
+$ npm install @amanoese/enigma
+```
 
 ## Usage
 
 ```javascript
-const Enigma = require('../src/index.js')
+const Enigma = require('@amanoese/enigma')
 
 //ローターとプラグボード、リフレクターの位置を保存
 let save_rotor = new Enigma().toJSON()
