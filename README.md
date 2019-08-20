@@ -34,3 +34,6 @@ let decryptOutput = receve_enigma.typeString(encryptOutput)
 
 console.log(decryptOutput) // HELLO
 ```
+
+## LICENSE
+Apache-2.0
