@@ -1,7 +1,7 @@
 {
-  "name": "enigma",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@amanoese/enigma",
+  "version": "0.1.0",
+  "description": "enigmaのNode.jsによるシンプルな実装です。",
   "main": "dest/index.js",
   "scripts": {
     "start": "babel",
@@ -17,5 +17,14 @@
     "@babel/preset-env": "^7.5.5",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanoese/enigma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amanoese/enigma/issues"
+  },
+  "homepage": "https://github.com/amanoese/enigma#readme"
 }

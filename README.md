@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/amanoese/enigma.svg?branch=master)](https://travis-ci.org/amanoese/enigma)
 
-enigmaのNode.jsによる実装です。
+enigmaのNode.jsによるシンプルな実装です。
 
 ## Usage
 
