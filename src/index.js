@@ -19,7 +19,6 @@ class Enigma {
     this.rotors       = rotors    || Array.from({length:3}).map(_=>shuf(this.rotorGenerator()))
     this.reflector    = reflector || this.rotorGenerator().reverse()
 
-    console.log(this.toJSON())
     this.rotorsFirsts = [ ...this.rotors ].map(list=>+list[0])
   }
   rotorGenerator(length = 26){
